@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="response" type="responseType"/>
+  <xs:complexType name="rowType">
+    <xs:sequence>
+      <xs:element name="brth_yr" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2011"/>
+            <xs:enumeration value="2013"/>
+            <xs:enumeration value="2012"/>
+            <xs:enumeration value="2014"/>
+            <xs:enumeration value="2017"/>
+            <xs:enumeration value="2018"/>
+            <xs:enumeration value="2016"/>
+            <xs:enumeration value="2015"/>
+            <xs:enumeration value="2019"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="gndr" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FEMALE"/>
+            <xs:enumeration value="MALE"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ethcty" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="HISPANIC"/>
+            <xs:enumeration value="WHITE NON HISPANIC"/>
+            <xs:enumeration value="ASIAN AND PACIFIC ISLANDER"/>
+            <xs:enumeration value="BLACK NON HISPANIC"/>
+            <xs:enumeration value="ASIAN AND PACI"/>
+            <xs:enumeration value="BLACK NON HISP"/>
+            <xs:enumeration value="WHITE NON HISP"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="nm" minOccurs="0"/>
+      <xs:element type="xs:string" name="cnt" minOccurs="0"/>
+      <xs:element type="xs:string" name="rnk" minOccurs="0"/>
+      <xs:element type="rowType" name="row" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="_id" use="optional"/>
+    <xs:attribute type="xs:string" name="_uuid" use="optional"/>
+    <xs:attribute type="xs:string" name="_position" use="optional"/>
+    <xs:attribute type="xs:string" name="_address" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="responseType">
+    <xs:sequence>
+      <xs:element type="rowType" name="row"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
